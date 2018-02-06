@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Peter Curran (Ascentor Ltd) -->
+<?purpose description="This schema defines the FPDL Policy"?>
+<?version number="0.3" date="22 Nov 2017"?>
+<?copyright statement="Crown Copyright"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:fpdl="http://www.niteworks.net/fpdl" targetNamespace="http://www.niteworks.net/fpdl" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3" vc:minVersion="1.1">
+	<xs:include schemaLocation="FpdlCommonTypes.xsd"/>
+	<xs:complexType name="patternType">
+		<xs:sequence>
+			<xs:element name="configMgmt" type="fpdl:configMgmtType">
+				<xs:annotation>
+					<xs:documentation>Config management data for the instance document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="patternGenericType">
+				<xs:annotation>
+					<xs:documentation>Generic type for this pattern (eg HTG, MTG, LTG, Filter)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LTG"/>
+						<xs:enumeration value="MTG"/>
+						<xs:enumeration value="HTG"/>
+						<xs:enumeration value="Filter"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="patternName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Short name for the pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Description of the pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="component" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="componentType">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Proxy"/>
+										<xs:enumeration value="Guard"/>
+										<xs:enumeration value="Filter"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="componentID" type="fpdl:guidPattern"/>
+							<xs:element name="module" type="fpdl:moduleType" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deployDefinitionType">
+		<xs:annotation>
+			<xs:documentation>Specification for a Deploy System</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="component" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of components withn the  system</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="module" type="fpdl:moduleType" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>List of modules within each component</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="moduleType">
+		<xs:sequence>
+			<xs:element name="moduleType">
+				<xs:annotation>
+					<xs:documentation>Module name</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="interface"/>
+						<xs:enumeration value="osp"/>
+						<xs:enumeration value="export"/>
+						<xs:enumeration value="import"/>
+						<xs:enumeration value="filter"/>
+						<xs:enumeration value="federation"/>
+						<xs:enumeration value="extension"/>
+						<xs:enumeration value="host"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="specification" type="fpdl:specType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Optional specification for the module containing a Name/Value pair</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="specType">
+		<xs:sequence>
+			<xs:element name="paramName">
+				<xs:annotation>
+					<xs:documentation>Parameter name</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="readOnly" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>Read ony parameter</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="value" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Parameter value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="patternLibraryType">
+		<xs:sequence>
+			<xs:element name="configMgmt" type="fpdl:configMgmtType">
+				<xs:annotation>
+					<xs:documentation>Config management data for the instance document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="library" type="fpdl:libraryEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="libraryEntryType">
+		<xs:sequence>
+			<xs:element name="patternGenericType">
+				<xs:annotation>
+					<xs:documentation>Generic type for this pattern (eg HTG, MTG, LTG, Filter)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LTG"/>
+						<xs:enumeration value="MTG"/>
+						<xs:enumeration value="HTG"/>
+						<xs:enumeration value="HTG"/>
+						<xs:enumeration value="Filter"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="patternName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Short name for the pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="patternVersion" type="xs:string"/>
+			<xs:element name="fileName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Pattern" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="embedded" type="xs:boolean"/>
+	</xs:complexType>
+</xs:schema>
