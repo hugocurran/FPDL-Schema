@@ -31,11 +31,6 @@
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:attribute>
-							<xs:attribute name="designReference" type="fpdl:guidPattern" use="required">
-								<xs:annotation>
-									<xs:documentation>Reference to federate design</xs:documentation>
-								</xs:annotation>
-							</xs:attribute>
 						</xs:extension>
 					</xs:complexContent>
 				</xs:complexType>
