@@ -65,17 +65,10 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="federateType" use="required">
+		<xs:attribute name="federateType" type="fpdl:federateType" use="required">
 			<xs:annotation>
 				<xs:documentation>This federate is either a gateway, filter or service)</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:enumeration value="gateway"/>
-					<xs:enumeration value="filter"/>
-					<xs:enumeration value="service"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="entityPolicyType">
