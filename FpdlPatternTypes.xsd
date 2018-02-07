@@ -135,7 +135,7 @@
 					<xs:documentation>Config management data for the instance document</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="library" type="fpdl:libraryEntryType" maxOccurs="unbounded"/>
+			<xs:element name="entry" type="fpdl:libraryEntryType" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="libraryEntryType">
@@ -159,10 +159,26 @@
 					<xs:documentation>Short name for the pattern</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="patternVersion" type="xs:string"/>
-			<xs:element name="fileName" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Pattern" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="patternVersion" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Version number of pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fileName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Pathname of a pattern file</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Pattern" type="fpdl:patternType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Embedded pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="embedded" type="xs:boolean"/>
+		<xs:attribute name="embedded" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>True if patterns embedded directly in the Library; false if  patterns in files</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 	</xs:complexType>
 </xs:schema>
