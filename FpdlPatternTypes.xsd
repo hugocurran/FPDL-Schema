@@ -140,7 +140,7 @@
 	</xs:complexType>
 	<xs:complexType name="libraryEntryType">
 		<xs:sequence>
-			<xs:element name="patternGenericType">
+			<xs:element name="patternGenericType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Generic type for this pattern (eg HTG, MTG, LTG, Filter)</xs:documentation>
 				</xs:annotation>
@@ -154,14 +154,19 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="patternName" type="xs:string">
+			<xs:element name="patternName" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Short name for the pattern</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="patternVersion" type="xs:string">
+			<xs:element name="patternVersion" type="xs:string" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Version number of pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="patternReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Reference for the pattern</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="fileName" type="xs:string" minOccurs="0">
