@@ -18,10 +18,10 @@
 				</xs:annotation>
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="LTG"/>
-						<xs:enumeration value="MTG"/>
-						<xs:enumeration value="HTG"/>
-						<xs:enumeration value="Filter"/>
+						<xs:enumeration value="ltg"/>
+						<xs:enumeration value="mtg"/>
+						<xs:enumeration value="htg"/>
+						<xs:enumeration value="filter"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -39,15 +39,7 @@
 				<xs:element name="component" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="componentType">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Proxy"/>
-										<xs:enumeration value="Guard"/>
-										<xs:enumeration value="Filter"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:element>
+							<xs:element name="componentType" type="fpdl:compType"/>
 							<xs:element name="componentID" type="fpdl:guidPattern"/>
 							<xs:element name="module" type="fpdl:moduleType" maxOccurs="unbounded"/>
 						</xs:sequence>

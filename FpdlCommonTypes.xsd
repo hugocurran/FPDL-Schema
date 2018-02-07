@@ -18,6 +18,13 @@
 			<xs:enumeration value="service"/>
 		</xs:restriction>
 	</xs:simpleType>
+		<xs:simpleType name="compType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="proxy"/>
+			<xs:enumeration value="guard"/>
+			<xs:enumeration value="filter"/>
+		</xs:restriction>
+	</xs:simpleType>
 	<xs:simpleType name="securityOwnerType">
 		<xs:annotation>
 			<xs:documentation>Relevant country/organisation codes</xs:documentation>

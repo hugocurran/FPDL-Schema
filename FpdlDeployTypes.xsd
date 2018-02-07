@@ -63,17 +63,10 @@
 									<xs:documentation>ID of this component</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
-							<xs:attribute name="componentType" use="required">
+							<xs:attribute name="componentType" type="fpdl:compType" use="required">
 								<xs:annotation>
 									<xs:documentation>Type of component</xs:documentation>
 								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Proxy"/>
-										<xs:enumeration value="Guard"/>
-										<xs:enumeration value="Filter"/>
-									</xs:restriction>
-								</xs:simpleType>
 							</xs:attribute>
 						</xs:extension>
 					</xs:complexContent>

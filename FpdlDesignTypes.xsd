@@ -34,11 +34,7 @@
 						<xs:extension base="fpdl:federateDesignType">
 							<xs:attribute name="federateType" use="required">
 								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Gateway"/>
-										<xs:enumeration value="Filter"/>
-										<xs:enumeration value="Service"/>
-									</xs:restriction>
+									<xs:restriction base="fpdl:federateType"/>
 								</xs:simpleType>
 							</xs:attribute>
 						</xs:extension>
@@ -125,9 +121,9 @@
 			</xs:annotation>
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="LTG"/>
-					<xs:enumeration value="MTG"/>
-					<xs:enumeration value="HTG"/>
+					<xs:enumeration value="ltg"/>
+					<xs:enumeration value="mtg"/>
+					<xs:enumeration value="htg"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -174,18 +170,10 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="fpdl:subscribeType">
-							<xs:attribute name="sourceType" use="required">
+							<xs:attribute name="filterSource" type="xs:boolean" use="optional" default="false">
 								<xs:annotation>
-									<xs:documentation>Source type deployment constraint</xs:documentation>
+									<xs:documentation>Filter source deployment constraint</xs:documentation>
 								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="federate"/>
-										<xs:enumeration value="entity"/>
-										<xs:enumeration value="filter"/>
-										<xs:enumeration value="any"/>
-									</xs:restriction>
-								</xs:simpleType>
 							</xs:attribute>
 						</xs:extension>
 					</xs:complexContent>
