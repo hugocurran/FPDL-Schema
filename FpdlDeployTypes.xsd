@@ -19,17 +19,10 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="fpdl:systemType">
-							<xs:attribute name="systemType" use="required">
+							<xs:attribute name="systemType" type="fpdl:federateType" use="required">
 								<xs:annotation>
 									<xs:documentation>Type of this system specification (Gateway, Filter, Service)</xs:documentation>
 								</xs:annotation>
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:enumeration value="Gateway"/>
-										<xs:enumeration value="Filter"/>
-										<xs:enumeration value="Service"/>
-									</xs:restriction>
-								</xs:simpleType>
 							</xs:attribute>
 						</xs:extension>
 					</xs:complexContent>
