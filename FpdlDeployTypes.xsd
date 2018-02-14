@@ -162,11 +162,6 @@
 					<xs:documentation>UUID of the filter entity</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="sourceID" type="fpdl:entityIdPattern">
-				<xs:annotation>
-					<xs:documentation>UUID of source entity that is to be filtered</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="rule" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Filter rule specification</xs:documentation>
@@ -480,6 +475,66 @@
 	<xs:element name="stringParam" substitutionGroup="fpdl:parameter">
 		<xs:annotation>
 			<xs:documentation>Parameter is a string</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="fpdl:parametersGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="actionParam" substitutionGroup="fpdl:parameter">
+		<xs:annotation>
+			<xs:documentation>Parameter is an action statement</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="fpdl:parametersGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hlaObjectParam" substitutionGroup="fpdl:parameter">
+		<xs:annotation>
+			<xs:documentation>Parameter is a HLA object classname</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="fpdl:parametersGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hlaAttributeParam" substitutionGroup="fpdl:parameter">
+		<xs:annotation>
+			<xs:documentation>Parameter is a (fully qualified) HLA object attribute name</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="fpdl:parametersGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hlaInteractionParam" substitutionGroup="fpdl:parameter">
+		<xs:annotation>
+			<xs:documentation>Parameter is a HLA interaction classname</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="fpdl:parametersGroup"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hlaParameterParam" substitutionGroup="fpdl:parameter">
+		<xs:annotation>
+			<xs:documentation>Parameter is a (fully qualified) HLA interaction parameter name</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
 			<xs:simpleContent>
