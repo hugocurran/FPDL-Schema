@@ -130,11 +130,6 @@
 					<xs:documentation>Pattern reference</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="value">
-				<xs:annotation>
-					<xs:documentation>Parameter value</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="parameter" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Parameter name/value pairs</xs:documentation>

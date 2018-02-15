@@ -44,6 +44,11 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="federateName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Federate name</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="component" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Configuration for a component</xs:documentation>
@@ -189,12 +194,9 @@
 							<xs:documentation>Model for rule</xs:documentation>
 						</xs:annotation>
 						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="proximity"/>
-								<xs:enumeration value="delay"/>
-								<xs:enumeration value="obfuscate"/>
-								<xs:enumeration value="smooth"/>
-								<xs:enumeration value="compound"/>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="0"/>
+								<xs:maxInclusive value="999"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:attribute>
@@ -424,7 +426,7 @@
 		<xs:complexContent>
 			<xs:extension base="fpdl:publishType">
 				<xs:sequence>
-					<xs:element name="interfaceName" type="xs:string" minOccurs="0">
+					<xs:element name="interfaceName" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>Interface binding for the policy</xs:documentation>
 						</xs:annotation>
