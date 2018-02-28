@@ -76,7 +76,7 @@
 			<xs:documentation>Specification for a federate</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="federateName" type="fpdl:federateNameType" minOccurs="1" maxOccurs="1">
+			<xs:element name="federateName" type="fpdl:federateNameType">
 				<xs:annotation>
 					<xs:documentation>Unique federate name</xs:documentation>
 				</xs:annotation>
@@ -101,7 +101,7 @@
 					<xs:documentation>Filter deployment pattern</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="subscribe" type="fpdl:subscribeFromType" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="subscribe" type="fpdl:subscribeFromType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Federate subscribe policy</xs:documentation>
 				</xs:annotation>
