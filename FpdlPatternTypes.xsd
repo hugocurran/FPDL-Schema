@@ -272,7 +272,7 @@
 	</xs:complexType>
 	<xs:complexType name="designLibraryEntryType">
 		<xs:sequence>
-			<xs:element name="Pattern" type="fpdl:designPatternType" maxOccurs="unbounded">
+			<xs:element name="Pattern" type="fpdl:designPatternType">
 				<xs:annotation>
 					<xs:documentation>Embedded pattern</xs:documentation>
 				</xs:annotation>
