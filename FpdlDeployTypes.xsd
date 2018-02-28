@@ -19,7 +19,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="fpdl:systemType">
-							<xs:attribute name="systemType" type="fpdl:federateType" use="required">
+							<xs:attribute name="systemType" type="fpdl:genericPatternType" use="required">
 								<xs:annotation>
 									<xs:documentation>Type of this system specification (Gateway, Filter, Service)</xs:documentation>
 								</xs:annotation>
@@ -56,6 +56,11 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="fpdl:componentType">
+							<xs:attribute name="componentName">
+								<xs:annotation>
+									<xs:documentation>Friendly name for this component</xs:documentation>
+								</xs:annotation>
+							</xs:attribute>
 							<xs:attribute name="componentID" type="fpdl:guidPattern" use="required">
 								<xs:annotation>
 									<xs:documentation>ID of this component</xs:documentation>

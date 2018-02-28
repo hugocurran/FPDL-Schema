@@ -250,10 +250,21 @@
 						<xs:documentation>Name of a federate source</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="entitySource" type="fpdl:entityIdPattern">
+				<xs:element name="entitySource">
 					<xs:annotation>
 						<xs:documentation>UUID of an entity source</xs:documentation>
 					</xs:annotation>
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="fpdl:entityIdPattern">
+								<xs:attribute name="federateName" type="fpdl:federateNameType">
+									<xs:annotation>
+										<xs:documentation>Name of the federate this entity belongs to</xs:documentation>
+									</xs:annotation>
+								</xs:attribute>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
 				</xs:element>
 			</xs:choice>
 			<xs:element name="object" type="fpdl:objectType" minOccurs="0" maxOccurs="unbounded">

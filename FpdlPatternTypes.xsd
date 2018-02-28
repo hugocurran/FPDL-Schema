@@ -37,11 +37,31 @@
 			</xs:element>
 			<xs:sequence>
 				<xs:element name="component" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Component of the system</xs:documentation>
+					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="componentType" type="fpdl:compType"/>
-							<xs:element name="componentID" type="fpdl:guidPattern"/>
-							<xs:element name="module" type="fpdl:moduleType" maxOccurs="unbounded"/>
+							<xs:element name="componentType" type="fpdl:compType">
+								<xs:annotation>
+									<xs:documentation>Type of component (Proxy, Guard, Filter)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="componentID" type="fpdl:guidPattern">
+								<xs:annotation>
+									<xs:documentation>Reference for the component</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="componentName">
+								<xs:annotation>
+									<xs:documentation>Friendly name for the component</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="module" type="fpdl:moduleType" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Modules required by the component</xs:documentation>
+								</xs:annotation>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>

@@ -18,7 +18,7 @@
 			<xs:enumeration value="service"/>
 		</xs:restriction>
 	</xs:simpleType>
-		<xs:simpleType name="compType">
+	<xs:simpleType name="compType">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="proxy"/>
 			<xs:enumeration value="guard"/>
@@ -116,6 +116,14 @@
 	<xs:simpleType name="guidPattern">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="genericPatternType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ltg"/>
+			<xs:enumeration value="mtg"/>
+			<xs:enumeration value="htg"/>
+			<xs:enumeration value="filter"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Configuration Management -->
