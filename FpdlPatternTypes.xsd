@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2017 rel. 3 sp1 (x64) (http://www.altova.com) by Peter Curran (Ascentor Ltd) -->
-<?purpose description="This schema defines the FPDL Policy"?>
+<?purpose description="This schema defines the FPDL Pattern mechanisms"?>
 <?version number="0.3" date="22 Nov 2017"?>
 <?copyright statement="Crown Copyright"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:fpdl="http://www.niteworks.net/fpdl" targetNamespace="http://www.niteworks.net/fpdl" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.3" vc:minVersion="1.1">
 	<xs:include schemaLocation="FpdlCommonTypes.xsd"/>
-	<xs:complexType name="patternType">
+	<xs:complexType name="deployPatternType">
 		<xs:sequence>
 			<xs:element name="configMgmt" type="fpdl:configMgmtType">
 				<xs:annotation>
@@ -140,7 +140,7 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="patternLibraryType">
+	<xs:complexType name="deployPatternLibraryType">
 		<xs:sequence>
 			<xs:element name="configMgmt" type="fpdl:configMgmtType">
 				<xs:annotation>
@@ -186,7 +186,7 @@
 					<xs:documentation>Pathname of a pattern file</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Pattern" type="fpdl:patternType" minOccurs="0">
+			<xs:element name="Pattern" type="fpdl:deployPatternType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Embedded pattern</xs:documentation>
 				</xs:annotation>
@@ -197,5 +197,86 @@
 				<xs:documentation>True if patterns embedded directly in the Library; false if  patterns in files</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="designPatternType">
+		<xs:sequence>
+			<xs:element name="configMgmt" type="fpdl:configMgmtType">
+				<xs:annotation>
+					<xs:documentation>Config management data for the instance document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="patternGenericType">
+				<xs:annotation>
+					<xs:documentation>Generic type for this pattern (eg HTG, MTG, LTG, Filter)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ltg"/>
+						<xs:enumeration value="mtg"/>
+						<xs:enumeration value="htg"/>
+						<xs:enumeration value="filter"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="patternName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Short name for the pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Description of the pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:sequence>
+				<xs:element name="parameter" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name">
+								<xs:annotation>
+									<xs:documentation>Parameter name</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="parameterType" type="fpdl:deployFilterParamType" use="required"/>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="value" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Parameter value (normally not used for patterns)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="description">
+								<xs:annotation>
+									<xs:documentation>Description of the parameter</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="designPatternLibraryType">
+		<xs:sequence>
+			<xs:element name="configMgmt" type="fpdl:configMgmtType">
+				<xs:annotation>
+					<xs:documentation>Config management data for the instance document</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="entry" type="fpdl:designLibraryEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="designLibraryEntryType">
+		<xs:sequence>
+			<xs:element name="Pattern" type="fpdl:designPatternType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Embedded pattern</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

@@ -143,24 +143,10 @@
 							<xs:complexType>
 								<xs:simpleContent>
 									<xs:extension base="xs:string">
-										<xs:attribute name="parameterType" use="required">
+										<xs:attribute name="parameterType" type="fpdl:deployFilterParamType" use="required">
 											<xs:annotation>
 												<xs:documentation>Parameter type (per Deploy types)</xs:documentation>
 											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:enumeration value="decimalParam"/>
-													<xs:enumeration value="integerParam"/>
-													<xs:enumeration value="stringParam"/>
-													<xs:enumeration value="entityParam"/>
-													<xs:enumeration value="hlaOjectParam"/>
-													<xs:enumeration value="hlaInteractionParam"/>
-													<xs:enumeration value="hlaAttributeParam"/>
-													<xs:enumeration value="hlaParameterParam"/>
-													<xs:enumeration value="hlaLogicParam"/>
-													<xs:enumeration value="hlaActionParam"/>
-												</xs:restriction>
-											</xs:simpleType>
 										</xs:attribute>
 									</xs:extension>
 								</xs:simpleContent>

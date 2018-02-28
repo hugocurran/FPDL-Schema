@@ -14,12 +14,22 @@
 			<xs:documentation>Abstract root element that is replaced by a FPDL document</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-	<xs:element name="Pattern" type="fpdl:patternType" substitutionGroup="fpdl:fpdlDocument">
+		<xs:element name="DesignPattern" type="fpdl:designPatternType" substitutionGroup="fpdl:fpdlDocument">
 		<xs:annotation>
 			<xs:documentation>Deployment pattern</xs:documentation>
 		</xs:annotation>
 	</xs:element>
-		<xs:element name="PatternLibrary" type="fpdl:patternLibraryType" substitutionGroup="fpdl:fpdlDocument">
+	<xs:element name="DesignPatternLibrary" type="fpdl:designPatternLibraryType" substitutionGroup="fpdl:fpdlDocument">
+		<xs:annotation>
+			<xs:documentation>Deployment pattern library</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeployPattern" type="fpdl:deployPatternType" substitutionGroup="fpdl:fpdlDocument">
+		<xs:annotation>
+			<xs:documentation>Deployment pattern</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="DeployPatternLibrary" type="fpdl:deployPatternLibraryType" substitutionGroup="fpdl:fpdlDocument">
 		<xs:annotation>
 			<xs:documentation>Deployment pattern library</xs:documentation>
 		</xs:annotation>
