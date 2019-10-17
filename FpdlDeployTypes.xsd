@@ -21,7 +21,7 @@
 						<xs:extension base="fpdl:systemType">
 							<xs:attribute name="systemType" type="fpdl:genericPatternType" use="required">
 								<xs:annotation>
-									<xs:documentation>Type of this system specification (Gateway, Filter, Service)</xs:documentation>
+									<xs:documentation>Type of this system specification (ltg,mtg,htg,filter))</xs:documentation>
 								</xs:annotation>
 							</xs:attribute>
 						</xs:extension>
@@ -110,7 +110,19 @@
 								<xs:documentation>Interface binding for the policy</xs:documentation>
 							</xs:annotation>
 						</xs:element>
-						<xs:element name="source" type="fpdl:subscribeType" maxOccurs="unbounded"/>
+						<xs:element name="source" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="fpdl:subscribeType">
+										<xs:attribute name="filterSource" type="xs:boolean">
+											<xs:annotation>
+												<xs:documentation>Indicates if the source is a filter</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -137,6 +149,8 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="ExportPath"/>
 						<xs:enumeration value="ImportPath"/>
+						<xs:enumeration value="exportPath"/>
+						<xs:enumeration value="importPath"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -408,13 +422,13 @@
 								<xs:documentation>FOM</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:all>
-									<xs:element name="uri" type="xs:anyURI" maxOccurs="unbounded">
+								<xs:all minOccurs="0">
+									<xs:element name="uri" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>URI of a FOM or FOM module in use in this federation</xs:documentation>
 										</xs:annotation>
 									</xs:element>
-									<xs:element name="fileName" type="xs:string" maxOccurs="unbounded">
+									<xs:element name="fileName" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 										<xs:annotation>
 											<xs:documentation>Filepath of a FOM or FOM module in use in this federation</xs:documentation>
 										</xs:annotation>
