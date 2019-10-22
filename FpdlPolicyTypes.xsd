@@ -172,11 +172,6 @@
 					<xs:documentation>Interaction parameters</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="exception" type="fpdl:parameterPolicyType" minOccurs="0" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Exception to interaction releaseStatements</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="parameterPolicyType">
@@ -201,25 +196,6 @@
 			<xs:element name="releaseStatements" type="fpdl:releaseStatementsType" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Release statements relating to this parameter only</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="parameterExceptionPolicyType">
-		<xs:sequence>
-			<xs:element name="parameterName" type="fpdl:attributeNamePattern" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Parameter name</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="entityID" type="fpdl:entityIdPattern" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Referenced entity</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="releaseStatements" type="fpdl:releaseStatementsType">
-				<xs:annotation>
-					<xs:documentation>Release statements relating to this exception</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
@@ -280,6 +256,25 @@
 												<xs:enumeration value="proximity"/>
 												<xs:enumeration value="obfuscation"/>
 												<xs:enumeration value="throttle"/>
+												<xs:enumeration value="delay"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="parameterType" use="required">
+										<xs:annotation>
+											<xs:documentation>Unit type of the parameter</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="nm"/>
+												<xs:enumeration value="mi"/>
+												<xs:enumeration value="m"/>
+												<xs:enumeration value="km"/>
+												<xs:enumeration value="sec"/>
+												<xs:enumeration value="msec"/>
+												<xs:enumeration value="hz"/>
+												<xs:enumeration value="mhz"/>
+												<xs:enumeration value="ghz"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:attribute>
@@ -339,6 +334,25 @@
 												<xs:enumeration value="proximity"/>
 												<xs:enumeration value="obfuscation"/>
 												<xs:enumeration value="throttle"/>
+												<xs:enumeration value="delay"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="parameterType" use="required">
+										<xs:annotation>
+											<xs:documentation>Unit type of the parameter</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="nm"/>
+												<xs:enumeration value="mi"/>
+												<xs:enumeration value="m"/>
+												<xs:enumeration value="km"/>
+												<xs:enumeration value="sec"/>
+												<xs:enumeration value="msec"/>
+												<xs:enumeration value="hz"/>
+												<xs:enumeration value="mhz"/>
+												<xs:enumeration value="ghz"/>
 											</xs:restriction>
 										</xs:simpleType>
 									</xs:attribute>
